@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
 
   spec.summary = 'Traefik Consul Certificate Export'
   spec.description = 'Export certificates from consul kv to files'
-  spec.homepage = ''
+  spec.homepage = 'https://github.com/RalfHerzog/tcce'
   spec.license = 'MIT'
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
