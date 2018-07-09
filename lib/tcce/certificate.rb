@@ -5,9 +5,9 @@ module TCCE
   class Certificate
     attr_accessor :json
 
-    def to_s
-      JSON.parse(json).pretty_print
-    end
+    # def to_s
+    #   JSON.pretty_generate json
+    # end
 
     def self.parse(content)
       file = TCCE::Certificate.new

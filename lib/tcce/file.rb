@@ -5,10 +5,13 @@ module TCCE
   class File
     attr_accessor :json
 
-    def to_s
-      JSON.parse(json).pretty_print
-    end
+    # def to_s
+    #   JSON.pretty_generate json
+    # end
 
+    # Parse a file given by argument
+    # @param [String] content the object contents
+    # @return [TCCE::File]
     def self.parse(content)
       file = TCCE::File.new
       file.json = JSON.parse content
@@ -28,9 +31,13 @@ module TCCE
     end
 
     def certificates
-      json['DomainsCertificate']['Certs'].map do |cert|
-        TCCE::Certificate.parse cert
+      certs = []
+      json['DomainsCertificate']['Certs'].each do |cert|
+        certificate = TCCE::Certificate.parse cert
+        certs << certificate
+        yield certificate if block_given?
       end
+      certs
     end
 
     def http_challenge

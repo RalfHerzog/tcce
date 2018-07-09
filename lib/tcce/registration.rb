@@ -2,6 +2,10 @@ module TCCE
   class Registration
     attr_accessor :json
 
+    # def to_s
+    #   JSON.pretty_generate json
+    # end
+
     def self.parse(content)
       file = TCCE::Registration.new
       file.json = content

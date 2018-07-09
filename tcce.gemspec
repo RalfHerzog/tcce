@@ -18,7 +18,7 @@ Gem::Specification.new do |spec|
   if spec.respond_to?(:metadata)
     spec.metadata['allowed_push_host'] = 'https://rubygems.org'
   else
-    raise 'RubyGems 2.0 or newer is required to protect against '
+    raise 'RubyGems 2.0 or newer is required to protect against ' \
     'public gem pushes.'
   end
 
@@ -37,4 +37,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'bundler', '~> 1.16'
   spec.add_development_dependency 'minitest', '~> 5.0'
   spec.add_development_dependency 'rake', '~> 10.0'
+  spec.add_development_dependency 'simplecov', '~> 0.16.1'
 end

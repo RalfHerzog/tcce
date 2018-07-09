@@ -7,13 +7,17 @@ class TCCEConsulTest < Minitest::Test
 
     @file = TCCE::File.parse string
     @registration = @file.registration
-    @certificates = @file.certificates
   end
 
   def test_file
     assert @file.email
     assert @file.email.is_a? String
     assert @file.email.include? '@'
+
+    assert @file.http_challenge.nil?
+
+    assert @file.private_key
+    assert @file.private_key.is_a? String
   end
 
   def test_registration
@@ -38,10 +42,16 @@ class TCCEConsulTest < Minitest::Test
   end
 
   def test_certificates
-    assert @certificates
-    assert @certificates.is_a? Array
+    # Yield by block
+    @file.certificates do |certificate|
+      assert certificate.is_a? TCCE::Certificate
+    end
 
-    @certificates.each do |certificate|
+    certificates = @file.certificates
+    assert certificates
+    assert certificates.is_a? Array
+
+    certificates.each do |certificate|
       assert certificate.is_a? TCCE::Certificate
 
       # Domain
