@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email = ['ralf@rherzog.de']
 
   spec.summary = 'Traefik Consul Certificate Export'
-  spec.description = 'Export certificates from consul kv to files'
+  spec.description = 'Export traefik acme certificates from consul kv to files'
   spec.homepage = 'https://github.com/RalfHerzog/tcce'
   spec.license = 'MIT'
 

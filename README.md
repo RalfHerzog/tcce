@@ -37,7 +37,7 @@ To retrieve the contents of the consul kv-object, execute the following code:
 ```ruby
 consul = TCCE::Consul.new url, acl_token, kv_path
 acme_json = consul.get
-# => "{"Email":"ralf.herzog@mail.com","Registration":{"body":{"status":"valid","contact":["mailto:ralf.herzog@mail.com"]},"uri":"https://acme-v02.api.letsencrypt.org/acme/acct/37963798"},"PrivateKey":"MII..."}"
+# => "{"Email":"ralf@rherzog.de","Registration":{"body":{"status":"valid","contact":["mailto:ralf@rherzog.de"]},"uri":"https://acme-v02.api.letsencrypt.org/acme/acct/15648645"},"PrivateKey":"MII..."}"
 ```
 
 This will decompress the stored object. For example:
@@ -87,7 +87,14 @@ end
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+After checking out the repo, run `bin/setup` to install dependencies. Set the environment variables with working values:
+
+    CONSUL_URL=http://localhost:8300
+    CONSUL_TOKEN=xxxxxxxx-yyyy-zzzz-1111-222222222222
+    CONSUL_KV_PATH=traefik/acme/account
+    CONSUL_CA_PATH=ca.crt # optional
+
+Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
 To install this gem onto your local machine, run `bundle exec rake install`.
 
