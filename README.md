@@ -28,6 +28,8 @@ You will need a Consul ACL Token with `read` permission on the object set by [tr
 
 The key can be found in your `traefik.toml` under `[acme]` => `storage`.
 
+For a complete list of methods see the files under `test/`.
+
 ### Connect and export Consul object
 
 To retrieve the contents of the consul kv-object, execute the following code: 
