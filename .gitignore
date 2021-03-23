@@ -105,3 +105,4 @@ build-iPhoneSimulator/
 .rvmrc
 
 .idea/
+vendor/
